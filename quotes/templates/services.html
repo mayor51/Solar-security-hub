@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="secure your space.power your future">
+	  <meta name="keywords" content="CCTV and solar installation,">
+  	<meta name="author" content="Brad mayor">
+    <title>Mayor's solar and security hub | Services</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+  </head>
+
+  <body style="margin: 0;"> {% if messages %}
+  <div class="container">
+  {% for message in messages %}
+  <div class="alert-success">
+      {{ message }}
+  </div>
+  {% endfor %}
+  {% endif %}
+
+
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1 style="color: skyblue;">Mayor's Solar and Security Hub </h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li class="current"><a href="{% url 'services' %}">Services</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+
+      </div>
+    </section>
+
+    <section id="main">
+      <div class="container">
+        <article id="main-col">
+          <h1 class="page-title">Services</h1>
+          <ul id="services">
+       At Mayor's Solar & Security Hub , we offer a range of installation services tailored to meet your specific needs, Below is an overview of our service.
+       <h3>our services are divided into 3 main branches</h3>    
+            <li>
+              <h3>1️⃣ SECURITY SOLUTIONS</h3>
+              
+              <ul>
+      <li>CCTV System Installation (spy & standard camera)  </li>
+      <li>Car Tracker & Fleet Security</li>
+      <li>Electric Fence Installation</li>
+      <li>Video Doorbell & Access control</li>
+      <li>Fire Alarm & Extinguisher Supply</li>
+      <li>Stun Guns & Personal Security Tools</li>
+              </ul>
+            <img src="{% static 'img/security.png' %}"  width="250px" alt="security solutions">
+                
+          
+						 
+						 
+            
+            <li>
+              <h3>2️⃣ ENERGY SOLUTIONS </h3>
+          <ul> 
+       <li>Solar Panel System Installation</li>
+       <li>Inverter Installation & Maintenance</li>
+       <li>Lithium & Tubular Battery Supply</li>
+       <li>PWM/MPPT Solar Charge Controllers</li>
+          </ul>
+           <img src="{% static 'img/energy solutions.png' %}" width="250px" alt="energy solutions">
+                
+             
+        
+            <li>
+              <h3>3️⃣ COMMUNICATION INSTALLATION </h3>
+             <ul>
+     <li>Walkie Talkie Supply & Setup</li>
+     <li>Professional Installation & Maintenance</li> 
+     <li>System Upgrades & Security Consulting</li>
+             </u>
+        <div class="box">
+                <img src="{% static 'img/communication installation.png' %}" width="250px" alt="communication installation">
+                
+                </div>
+                                                             
+           
+        </article>
+       
+     <p>For a precise quote tailored to your specific needs and property, please contact us directly. 
+</p>
+  
+
+        <aside id="sidebar">
+        <form action="/submit-quote/"method="POST">  
+          <div class="dark">
+            <h3>Get A Quote</h3>
+            <div class="quote">
+  						<div>
+  							<label>  </label><br>
+                            {% csrf_token %}
+                            <input type="text" name="name" placeholder="Name" required>
+  						</div>
+  						
+  						
+  						<div>
+  							<label>  </label><br>
+  							<input type="email" name="email" placeholder="Email Address" required>
+  						</div>
+  						<div>
+  							<label>  </label><br>
+  							<textarea name="message" placeholder="Message" required></textarea>
+  						</div>
+  						<button class="button_1" type="submit">Send</button>
+					</form>
+          </div>
+        </aside>
+      </div>
+      <h3 style="text-align: center;">Your safety, our priority, your power, our passion!    </h3>
+      
+    </section>
+   
+
+    <footer>
+      <p>Mayor's Solar & Security Hub Copyright &copy; 2025-All rights reserved</p>
+    </footer>
+  </body>
+</html>
