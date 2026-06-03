@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-import os
 from pathlib import Path
+import os
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,13 +79,12 @@ WSGI_APPLICATION = 'solar_backend.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 
-    import dj_database_url
-    import os
+
     #this locks for the DATABASE_URL environment variable from render
     #if it cant find it (like when you are working locally),it falls back to SQLite
 DATABASES = {
     'default': dj_database_url.config(
-        defualt=os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3'),
+        default=os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3'),
         conn_max_age=600,
         ssl_require=True
     )
