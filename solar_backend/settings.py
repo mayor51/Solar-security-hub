@@ -82,11 +82,15 @@ WSGI_APPLICATION = 'solar_backend.wsgi.application'
 
     #this locks for the DATABASE_URL environment variable from render
     #if it cant find it (like when you are working locally),it falls back to SQLite
+import os
+import dj_database_url
+
+db_url = os.environ.get('DATABASE_URL')
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3'),
+        default= 'sqlite:///db.sqlite3',
         conn_max_age=600,
-        ssl_require=True
+        ssl_require=(db_url is not None)
     )
 }
 
